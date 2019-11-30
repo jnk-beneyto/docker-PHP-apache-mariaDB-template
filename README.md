@@ -1,13 +1,16 @@
 # docker-PHP-apache-mariaDB-template
 
-  - basic docker template with a sql file already loaded where we can fetch all data from ddbb and show in the landpage
-
+- basic docker template with a sql file already loaded where we can fetch all data from ddbb and show in the landpage
 
 # steps to run
 
-  - download the repo
-  - on root path , through terminal type on bash:
-    -> docker-compose up
+- requirements
+  - docker deamon running
 
-  - In order to check that everything it's working just type on your browser: 
-    -> localhost
+```
+git clone https://github.com/jnk-beneyto/docker_PHP_apache_mariaDB_template.git
+cd docker_PHP_apache_mariaDB_template
+docker-compose up
+```
+
+http://localhost

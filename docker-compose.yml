@@ -1,24 +1,24 @@
-version: '3'
+version: "3"
 
 services:
   db:
     image: mariadb/server:10.3
-    restart: always #se reinicia servidor siempre que hayan cambios
-    environment: #se establece pwd root y nombre de la base de datos
+    restart: always
+    environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: mydish
     ports:
       - "3306:3306"
-    volumes: # se carga archivo sql donde contiene la bbdd
+    volumes:
       - ./data/dump.sql:/docker-entrypoint-initdb.d/dump.sql
   web:
     build:
-      context: ./src # se indica ruta del Dockerfile
-      dockerfile: Dockerfile # se carga Dockerfile con mismo nombre
+      context: ./src
+      dockerfile: Dockerfile
     container_name: php73
     depends_on:
-      - db # se indica que este container depende de la bbdd
+      - db
     ports:
       - "80:80"
     volumes:
-      - ./src/:/var/www/html/ # se mapea volumenes 
+      - ./src/:/var/www/html/
